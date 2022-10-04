@@ -1,0 +1,4 @@
+streamlit==0.82.0
+pandas==1.2.4
+numpy==1.20.1
+tvDataFeed==2.1.0
