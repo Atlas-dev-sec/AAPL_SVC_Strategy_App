@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tvDatafeed import TvDatafeed, Interval
 import warnings
-import datetime
 import logging
 
 plt.style.use('fivethirtyeight')
