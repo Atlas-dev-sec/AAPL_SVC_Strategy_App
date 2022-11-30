@@ -26,7 +26,7 @@ def get_data():
     #data = tv.get_hist(symbol='AAPL', exchange='NASDAQ', interval=Interval.in_daily,n_bars = 300)
     aapl = yf.download('AAPL', '2021-11-30')
     aapl = aapl.drop(['Adj Close'], axis=1) 
-    return appl
+    return aapl
 
 data = get_data()
 target = data.iloc[[-1]]
