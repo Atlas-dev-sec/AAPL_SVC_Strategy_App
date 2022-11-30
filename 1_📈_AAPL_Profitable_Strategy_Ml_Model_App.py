@@ -34,10 +34,10 @@ data2 = data[:-1]
 
 # PREPROCESSING DATA
 # indepent variables
-data2['high-low'] = data2['high'] - data2['low']
-data2['open-close'] = data2['open'] - data2['close']
+data2['high-low'] = data2['High'] - data2['Low']
+data2['open-close'] = data2['Open'] - data2['Close']
 
-X = data2[['open-close', 'high-low', 'close']]
+X = data2[['open-close', 'high-low', 'Close']]
 # store the target variable, if tomorrows close price is greater than todays close price then put 1 else put 0
 y = np.where(data2.close.shift(-1) > data2.close, 1, 0)
 
@@ -65,7 +65,7 @@ data2['pred'] = model.predict(X[['open-close', 'high-low']])
 
 # strategy creation buy and hold 
 # calculate daily returns
-data2['return'] = data2['close'].pct_change(1)
+data2['return'] = data2['Close'].pct_change(1)
 
 #calculate the strategy returns
 data2['stra_return'] = data2['pred'].shift(1) * data2['return']
@@ -85,10 +85,10 @@ plt.legend()
 st.pyplot(two_plots)
 
 #Processing today's predictions
-target['high-low'] = target['high'] - target['low']
-target['open-close'] = target['open'] - target['close']
+target['high-low'] = target['High'] - target['Low']
+target['open-close'] = target['Open'] - target['Close']
 
-X_input = target[['open-close', 'high-low', 'close']]
+X_input = target[['open-close', 'high-low', 'Close']]
 
 target['pred'] = model.predict(X_input[['open-close', 'high-low']])
 
@@ -110,10 +110,10 @@ st.write("""
    ## AAPL Closing Price
 """)
 
-st.line_chart(data2['close'])
+st.line_chart(data2['Close'])
 
 st.write("""
   ## AAPL Asset Volume
 """)
 
-st.line_chart(data2['volume'])
+st.line_chart(data2['Volume'])
