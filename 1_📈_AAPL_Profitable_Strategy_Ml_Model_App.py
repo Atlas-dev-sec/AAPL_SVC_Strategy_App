@@ -92,7 +92,7 @@ X_input = target[['open-close', 'high-low', 'Close']]
 
 target['pred'] = model.predict(X_input[['open-close', 'high-low']])
 
-st.write('# Today\'s model prediction is: {}'.format(target.iloc[-1]))
+st.write('# Today\'s model prediction is: {}'.format(target.iloc[0]))
 
 # MODEL INSTRUCTIONS
 st.title('Strategy Instructions')
