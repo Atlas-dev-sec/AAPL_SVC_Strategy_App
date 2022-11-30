@@ -3,7 +3,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from tvDatafeed import TvDatafeed, Interval
+#from tvDatafeed import TvDatafeed, Interval
+import yfinance as yf 
 import warnings
 import logging
 
@@ -20,10 +21,12 @@ st.sidebar.markdown('# Main Page App')
 
 @st.cache(allow_output_mutation=True)
 def get_data():
-    logging.basicConfig(level=logging.DEBUG)
-    tv = TvDatafeed()
-    data = tv.get_hist(symbol='AAPL', exchange='NASDAQ', interval=Interval.in_daily,n_bars = 300)
-    return data
+    #logging.basicConfig(level=logging.DEBUG)
+    #tv = TvDatafeed()
+    #data = tv.get_hist(symbol='AAPL', exchange='NASDAQ', interval=Interval.in_daily,n_bars = 300)
+    aapl = yf.download('AAPL', '2021-11-30')
+    aapl = aapl.drop(['Adj Close'], axis=1) 
+    return appl
 
 data = get_data()
 target = data.iloc[[-1]]
