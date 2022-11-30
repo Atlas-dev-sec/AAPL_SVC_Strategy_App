@@ -39,7 +39,7 @@ data2['open-close'] = data2['Open'] - data2['Close']
 
 X = data2[['open-close', 'high-low', 'Close']]
 # store the target variable, if tomorrows close price is greater than todays close price then put 1 else put 0
-y = np.where(data2.close.shift(-1) > data2.close, 1, 0)
+y = np.where(data2.Close.shift(-1) > data2.Close, 1, 0)
 
 # get percentage to split the data (90% train 10% test)
 percentage_split = 0.9
