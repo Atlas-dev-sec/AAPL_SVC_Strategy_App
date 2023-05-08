@@ -16,7 +16,7 @@ st.set_page_config(
   page_icon='📈'
 )
 
-st.title('SVC Strategy Buy and Selling App on AAPL Stock Data')
+st.title('Buy and Selling App AAPL Stock Data')
 st.sidebar.markdown('# Main Page App')
 
 @st.cache(allow_output_mutation=True)
